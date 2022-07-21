@@ -7,43 +7,58 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
     
     <style>
         .todolist {
             border: 1px solid #e7e7e7;
             border-radius: 5px;
             margin: 2rem 0;
+            height: 90vh;
+            font-family: 'Fraunces', serif;
+            overflow-y: scroll;
         }
         table,
         th,
         td {
-            border: 1px solid #ccc;
+            border: 1px solid #cccccc73;
             text-align: center;
             padding: 10px;
+              font-family: 'Fraunces', serif;
         }
-
+        td.task_nm {
+            width:55%;
+        }
         table {
             width: 60%;
             margin: 0 auto 3rem auto;
             border-collapse: collapse;
         }
+       table thead{ 
+           background:  #54566e;
+           color: #FFF;
+        }
+        table tbody{ }
         input {
             border: 1px solid #ccc;
             border-radius: 3px;
+           
         }
 
         input,span{
-            font-size: 17px;
+            font-size: 15px;
             color: #3a3a3a;
+            padding: 4px 10px;
         }
         button{
             padding: 5px 20px;
-            font-size: 17px;
+            font-size: 15px;
             border: none;
             border-radius: 5px;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
         } 
         .btn-warn{ 
             display: none;
@@ -58,7 +73,7 @@
             <div class="todolist text-center">
                 <div>
                     <h1>To Do List</h1>
-                    <span>Task : </span> <input type="text" id="todo_task" />
+                    <span>Task : </span> <input type="text" id="todo_task" placeholder="Enter Task" />
                     <button class="btn-success" id="add_btn" onclick="add()">Add</button>
                     <button class="btn-warn" id="update_btn">Update</button>
                 </div>
@@ -83,10 +98,10 @@
 
         function show() {
             todolist.innerHTML = "";
-            todolist.innerHTML = "<tr><td>Sr.no</td><td>Task To do</td><td colspan='2'>Action</td></tr>";
+            todolist.innerHTML = "<thead><tr><td>Sr.no</td><td class='task_nm'>Task To do</td><td colspan='2'>Action</td></tr></thead>";
             arrayitems.forEach(function (n, i) {
                 var sr_no = i + 1;
-                todolist.innerHTML += "<tr><td>" + sr_no + "</td><td>" + n + "</td><td><button class='btn-info' onclick='edit(" + i + ")'>Edit</button></td>" +
+                todolist.innerHTML += "<tr><td>" + sr_no + "</td><td class='task_nm'>" + n + "</td><td><button class='btn-info' onclick='edit(" + i + ")'>Edit</button></td>" +
                     "<td><button class='btn-danger' onclick='del(" + i + ")'>Delete</button></td></tr>";
             })
         }
