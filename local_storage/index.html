@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Login</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background: url(images/bg.png) no-repeat;
+         background-size: cover;
+      }
+      header {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+        /* .top_login {
+          margin: 2rem auto;
+          text-align: center;
+        } */
+        .btn {
+          background: #FFF;
+          color: #000;
+          font-size: 14px;
+          font-weight: 500;
+          border: 1px solid #FFF;
+        }
+        #loginModal {
+          padding: 30px;
+        }
+        #loginModal .btn,   #regiModal .btn {
+          background: #000;
+          color: #FFF;
+          font-size: 14px;
+          font-weight: 500;
+          border: 1px solid #FFF;
+        }
+        .modal-content {
+          padding: 20px;
+        }
+        .modal-title {
+          font-size: 18px;
+        }
+        .modal-body > div {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        
+        .form_fields {
+          margin: 1rem 0;
+          display: flex;
+        }
+        .form_fields label{
+           width: 30%;
+        }
+        .form_fields input {
+          width: 68%;
+          border: 1px solid #d7d7d7;
+          border-radius: 3px;
+          padding: 5px 10px;
+        }
+        .load_more_wrap {        
+            margin: 15rem 0 5rem 0;
+        }
+        .list_img { 
+        display: flex;
+        gap: 6.5rem;
+        flex-wrap: wrap;
+
+        }
+        .list_img img { 
+           width: 230px;
+           height: 200px;
+           border: 2px solid #b79c9c;
+           border-radius: 10px;
+           box-shadow: 5px 4px 5px #7a3668;
+        }
+        .list_element {
+          display: none;
+        }
+        .list_element:nth-child(1) {
+           display: block;
+         }
+        .list_element:nth-child(2) {
+          display: block;
+        }
+        .list_element:nth-child(3) {
+           display: block;
+         }
+        .list_element:nth-child(4) {
+          display: block;
+        }
+        button#loadmore {
+          margin: 5rem auto;
+        text-align: center;
+        display: block;
+        color: #000;
+        background: #fff;
+        border: 0px;
+        border-radius: 10px;
+        padding: 8px 35px;
+        font-weight: 500;
+        }
+    </style>
+  </head>
+  <body>
+     
+
+       <div class="container"> 
+         <header>
+            <div class="logo_wrap">
+              <a href="index.html"><img src="images/logo.png" alt="" title=""/></a>
+            </div>
+            <div class="top_login">
+               <button type="button" data-target="#regiModal"  data-toggle="modal" class="btn btn-primary"> Register </button> 
+               <button type="button"  data-target="#loginModal" class="btn btn-primary" data-toggle="modal"> Login </button> 
+            </div>  
+         </header>         
+
+        </div>
+        <div class="container"> 
+            <div class="load_more_wrap">
+                <div class="list_img">
+                <div class="list_element text-center"><img src="images/img1.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img2.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img3.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img4.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img5.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img6.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img7.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img8.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img9.webp" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img10.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img1.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img2.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img3.jpeg" alt="" title=""/></div>
+                <div class="list_element"><img src="images/img4.jpeg" alt="" title=""/></div>
+               </div>
+          
+            <!-- Load More Button -->
+            <button id="loadmore">Load More...</button>
+            </div>
+        </div>
+        <div class="modal fade" id="regiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Register Now!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                   <div class="form_title"> Enter your details </div>
+                   <div class="form_fields"><label>Name</label> <input type="text" id="uname" name="uname" placeholder="Enter Username" class="form-control"/> </div>
+                   <div class="form_fields"><label>Email</label> <input type="email" id="email" name="email" placeholder="Enter Email" class="form-control"/> </div>
+                   <div class="form_fields"><label>Password</label><input type="password" id="psw" name="psw" placeholder="Enter password" class="form-control"/></div>
+                 
+              </div>
+              <div class="modal-footer">
+                <button type="button" onClick="save_data()" class="btn btn-primary" id="login_btn">Submit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Login</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                     <div class="form_title"> Enter Login details </div>
+                     <div class="form_fields"><label>Username</label> <input type="text" id="uname" name="uname" placeholder="Enter Username" class="form-control"/> </div>
+                     <div class="form_fields"><label>Password</label><input type="password" id="pass" name="pass" placeholder="Enter password" class="form-control"/></div>
+                   
+                </div>
+                <div class="modal-footer">
+                  <button type="button" onClick="save_userdata()" class="btn btn-primary" id="login_btn">Login</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+         </div> 
+   
+    <script> 
+
+       //load more images//
+      const loadmore = document.querySelector('#loadmore');
+      let currentItems = 4;
+      loadmore.addEventListener('click', (e) => {
+
+         // alert("hello");
+            const elementList = [...document.querySelectorAll('.list_img .list_element')];
+            console.log(elementList);
+          for (let i = currentItems; i < currentItems + 4; i++) {
+              if (elementList[i]) {
+                  elementList[i].style.display = 'block';
+              }
+          }
+            currentItems += 4;
+
+          // Load more button will be hidden after list fully loaded
+          if (currentItems >= elementList.length) {
+
+            //console.log("currentItems " +currentItems);
+           // console.log("all " +elementList.length);
+
+              event.target.style.display = 'none';
+          }
+    })
+
+      // login of user//
+      function save_userdata() {
+      let uname,pass;
+      uname=document.getElementById("uname").value;
+      pass=document.getElementById("pass").value;
+      
+      let user_records=new Array();
+      user_records=JSON.parse(localStorage.getItem("users")) || []
+
+     // console.log(user_records);
+      if(user_records.some((v)=>{return v.name==uname && v.psw==pass}))
+      {
+        alert("Login Successfull.");
+        var current_user=user_records.filter((v)=>{return v.name==uname && v.psw==pass});
+        //console.log(current_user);
+         for(let i=0;i<current_user.length;i++) {
+            // console.log(current_user[i].name);
+            var nm=current_user[i].name;
+        }
+       // var nm=localStorage.setItem('name',current_user[0].name);
+        //localStorage.setItem('psw',current_user.psw);
+        console.log("name=" +nm);
+
+        window.location.href="user_profile.html?nm="+nm;
+      }
+      else
+      {
+        alert('Login Fail');
+      }
+
+      }
+      //register user
+      function save_data() {
+      let name,email,psw;
+      uname=document.getElementById("uname").value;
+      email=document.getElementById("email").value; 
+      psw=document.getElementById("psw").value;
+
+      let user_records=new Array();
+      user_records=JSON.parse(localStorage.getItem("users")) || [] 
+      
+        user_records.push({
+        "name":uname,
+        "email":email,
+        "psw":psw
+      })
+      localStorage.setItem("users",JSON.stringify(user_records));
+      sessionStorage.setItem("users",JSON.stringify(user_records));
+      alert("Regitered successfully");
+    }
+    </script>
+  
+  </body>
+</html>

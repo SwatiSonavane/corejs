@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>User Profile</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background: url(images/bg.png) no-repeat;
+         background-size: cover;
+      }
+      header {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn {
+          background: #FFF;
+          color: #000;
+          font-size: 14px;
+          font-weight: 500;
+          border: 1px solid #FFF;
+        }
+    .user_loggedin {
+      text-align: center;
+      margin: 10rem auto;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container"> 
+    <header> 
+      <div class="logo_wrap">
+        <a href="index.html"><img src="images/logo.png" alt="" title=""/></a>
+      </div>
+      <div class="top_login">
+         <button type="button" id="regi_btn" class="btn btn-primary"> Register </button> 
+         <button type="button"  onclick="Logout()" class="btn btn-primary" > Logout </button> 
+      </div>  
+   
+   </header>     
+  </div>  
+       <section class="container"> 
+          <h1 class="user_loggedin">Welcome <script>
+          const queryString = window.location.search;
+          //console.log(queryString);
+
+          const urlParams = new URLSearchParams(queryString);
+
+            const name = urlParams.get('nm')
+             console.log(name);
+             document.write(name);
+           </script></h1> 
+      </section>
+
+   
+    <script>
+
+      function Logout() {
+        alert("Clicked on button logout"); 
+          localStorage.removeItem('name');
+          localStorage.removeItem('psw');
+          window.location.href="index.html";
+      }
+ 
+    </script>
+  
+  </body>
+</html>
