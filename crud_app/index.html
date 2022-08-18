@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Crud App</title>
+  </head>
+  <body>
+    <h1 class="text-center">Hello, world!</h1>
+    <section class="container">
+          <table class="table" id="user_details">
+              <tr>
+                   <th colspan="5"> <a href="adddata.html" class="btn btn-danger"> Add Data</a></th>
+              </tr>
+              <tr>
+                <th> S.no</th> <th> Name</th> <th> Age</th> <th> City</th> <th> Action</th>
+              </tr>
+          </table>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+       fetch("http://localhost:3001/data")
+       .then(res=> res.json())
+       .then(data=>{
+        console.log(data);
+        for (i = 0; i < data.length; i++) {
+           var user_details=data[i];
+           var sr_no=i+1;
+           var table_users = document.getElementById("user_details");
+           table_users.innerHTML += "<tr><td>"+sr_no+"</td><td>"+ user_details.name +"</td><td>"+ user_details.age +"</td><td>"+ user_details.city +"</td></tr>"
+
+          }
+       })
+       .catch(err=> console.log(err))
+    </script>
+  
+  </body>
+</html>
